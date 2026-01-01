@@ -11,6 +11,8 @@ import Error from "../components/Error";
 import PrivateRoute from "../provider/PrivateRoute";
 import Profile from "../components/Profile";
 import Profilelayout from "../layout/Profilelayout";
+import ForgotPassword from "../components/ForgotPassword";
+import ForgotPasswordLayout from "../layout/ForgotPasswordLayout";
 
 const router = createBrowserRouter([
   {
@@ -54,6 +56,10 @@ const router = createBrowserRouter([
      <PrivateRoute>
         <Profilelayout></Profilelayout>
      </PrivateRoute>
+  },
+  {
+      path:"/forgot-password",
+      element:<ForgotPasswordLayout></ForgotPasswordLayout>
   },
   {
     path:"/*",
