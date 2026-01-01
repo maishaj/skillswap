@@ -1,0 +1,56 @@
+[
+  {
+    "providerId": 1,
+    "name": "Alex Martin",
+    "email": "alex@skillswap.com",
+    "skill": "Beginner Guitar Lessons",
+    "rating": 4.9,
+    "totalReviews": 120,
+    "image": "https://i.ibb.co.com/x8rkWbHM/allef-vinicius-Bq-NEe-ZAtxg-unsplash.jpg"
+  },
+  {
+    "providerId": 2,
+    "name": "Nadia Rahman",
+    "email": "nadia@skillswap.com",
+    "skill": "Yoga for Beginners",
+    "rating": 4.8,
+    "totalReviews": 98,
+    "image": "https://i.ibb.co.com/x8rkWbHM/allef-vinicius-Bq-NEe-ZAtxg-unsplash.jpg"
+  },
+  {
+    "providerId": 3,
+    "name": "Tania Akter",
+    "email": "tania@skillswap.com",
+    "skill": "Web Development Basics",
+    "rating": 4.9,
+    "totalReviews": 150,
+    "image": "https://i.ibb.co.com/x8rkWbHM/allef-vinicius-Bq-NEe-ZAtxg-unsplash.jpg"
+  },
+  {
+    "providerId": 4,
+    "name": "Sara Hossain",
+    "email": "sara@skillswap.com",
+    "skill": "Spoken English Practice",
+    "rating": 4.7,
+    "totalReviews": 85,
+    "image": "https://i.ibb.co.com/x8rkWbHM/allef-vinicius-Bq-NEe-ZAtxg-unsplash.jpg"
+  },
+  {
+    "providerId": 5,
+    "name": "Riyad Ahmed",
+    "email": "riyad@skillswap.com",
+    "skill": "Basic Photography",
+    "rating": 4.8,
+    "totalReviews": 110,
+    "image": "https://i.ibb.co.com/x8rkWbHM/allef-vinicius-Bq-NEe-ZAtxg-unsplash.jpg"
+  },
+  {
+    "providerId": 6,
+    "name": "Amina Khan",
+    "email": "amina@skillswap.com",
+    "skill": "Excel for Beginners",
+    "rating": 4.6,
+    "totalReviews": 72,
+    "image": "https://i.ibb.co.com/x8rkWbHM/allef-vinicius-Bq-NEe-ZAtxg-unsplash.jpg"
+  }
+]
