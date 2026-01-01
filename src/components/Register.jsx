@@ -5,7 +5,7 @@ import { FcGoogle } from "react-icons/fc";
 import { toast } from "react-toastify";
 
 const Register = () => {
-  const { createUser, user, setUser, signInWithGoogle} = use(AuthContext);
+  const { createUser, user, setUser, signInWithGoogle,update} = use(AuthContext);
   const [error,setError]=useState("");
   const location=useLocation();
   const navigate=useNavigate();
@@ -15,6 +15,8 @@ const Register = () => {
     const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
     e.preventDefault();
     const form = e.target;
+    const name=form.name.value;
+    const photo=form.photo.value;
     const email = form.email.value;
     const password = form.password.value;
     
@@ -31,11 +33,17 @@ const Register = () => {
     createUser(email, password)
       .then((res) => {
         const user = res.user;
-        setUser(user);
+        update({
+          displayName:name,profileURL:photo})
+        .then(()=>{
+          setUser({...user, displayName:name, photoURL:photo});
+          navigate("/");
+        })
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
+        setUser(user);
       });
 
     e.target.reset();
