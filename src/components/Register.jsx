@@ -1,10 +1,14 @@
 import React, { use, useState } from "react";
-import { Link } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../provider/AuthProvider";
+import { FcGoogle } from "react-icons/fc";
+import { toast } from "react-toastify";
 
 const Register = () => {
-  const { createUser, user, setUser} = use(AuthContext);
+  const { createUser, user, setUser, signInWithGoogle} = use(AuthContext);
   const [error,setError]=useState("");
+  const location=useLocation();
+  const navigate=useNavigate();
 
   const handleRegister = (e) => {
 
@@ -36,6 +40,20 @@ const Register = () => {
 
     e.target.reset();
   };
+
+    const handleGoogleLogin=()=>{
+    signInWithGoogle()
+      .then((res)=>{
+        const user=res.user;
+        navigate(`${location.state?location.state:"/"}`);
+        toast.success("Logged in successfully!");
+    })
+    .catch((error)=>{
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        toast.error(errorMessage);
+    });
+  }
 
   return (
     <div>
@@ -83,14 +101,15 @@ const Register = () => {
                 error && <p className='font-bold text-secondary'>{error}</p>
             }
 
-            <button className="btn btn-neutral mt-4">Register</button>
+            <button className="btn btn-neutral mt-4 w-2/3 mx-auto">Register</button>
+          </form>
+           <button onClick={handleGoogleLogin} className="btn btn-neutral mt-4 w-2/3 mx-auto"><FcGoogle/>Login with Google</button>
             <p className="font-semibold text-center">
               Already have an account?{" "}
               <Link to="/auth/login" className="text-secondary text-center">
                 Login
               </Link>
             </p>
-          </form>
         </div>
       </div>
     </div>

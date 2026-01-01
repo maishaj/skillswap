@@ -43,7 +43,7 @@ const ToyNavbar = () => {
                 </div>
 
                 <div className="navbar-end space-x-2">
-                    <img className='w-10 h-10' src={`${user?user.photoURL:"https://img.icons8.com/?size=100&id=7819&format=png"}`} alt="" />
+                    <img className='w-10 h-10 rounded-full' src={`${user?user.photoURL:"https://img.icons8.com/?size=100&id=7819&format=png"}`} alt="" />
                     {
                         user?(
                           <button onClick={handleLogout} className='btn'>Logout</button>
