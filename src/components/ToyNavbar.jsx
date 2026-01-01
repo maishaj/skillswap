@@ -1,7 +1,22 @@
-import React from 'react';
+import React, { use } from 'react';
 import { Link } from 'react-router';
+import { AuthContext } from '../provider/AuthProvider';
 
 const ToyNavbar = () => {
+
+    const {user,logout}=use(AuthContext);
+
+        const handleLogout = () => {
+                logout().then(() => {
+
+                })
+                .catch((error) => {
+                    alert(error);
+                });
+        }
+        console.log(user);
+
+
     return (
            <div className=''>
             <div className="navbar bg-base-100 shadow-sm">
@@ -28,8 +43,14 @@ const ToyNavbar = () => {
                 </div>
 
                 <div className="navbar-end space-x-2">
-                    <img className='w-10 h-10' src="https://img.icons8.com/?size=100&id=7819&format=png" alt="" />
-                    <Link to="/auth/login" className='btn'>Login</Link>
+                    <img className='w-10 h-10' src={`${user?user.photoURL:"https://img.icons8.com/?size=100&id=7819&format=png"}`} alt="" />
+                    {
+                        user?(
+                          <button onClick={handleLogout} className='btn'>Logout</button>
+                        ):(
+                          <Link to="/auth/login" className='btn'>Login</Link>
+                        )
+                    }
                 </div>
             </div>
         </div>

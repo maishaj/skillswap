@@ -8,6 +8,7 @@ import Authlayout from "../layout/Authlayout";
 import Login from "../components/Login";
 import Register from "../components/Register";
 import Error from "../components/Error";
+import PrivateRoute from "../provider/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -26,7 +27,10 @@ const router = createBrowserRouter([
   },
   {
     path: "/skill-details/:skillId",
-    element: <SkillDetailslayout></SkillDetailslayout>
+    element: 
+    <PrivateRoute>
+      <SkillDetailslayout></SkillDetailslayout>
+    </PrivateRoute>
   },
   {
     path:"/auth",

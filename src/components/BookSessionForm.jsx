@@ -1,5 +1,5 @@
 import React from 'react';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 const BookSessionForm = () => {
 
@@ -18,8 +18,7 @@ const BookSessionForm = () => {
                 <label className='font-medium text-xl'>Email</label>
                 <input className='border border-black p-1 rounded-lg' type="email" placeholder='Your email' required />
                 <button type='submit' className='btn btn-secondary rounded-lg w-1/2 mx-auto'>Submit</button>
-             </form>
-             <ToastContainer></ToastContainer>
+             </form>            
         </div>
     );
 };
