@@ -1,44 +1,44 @@
-import React, { use, useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../provider/AuthProvider";
 import { FcGoogle } from "react-icons/fc";
 import { toast } from "react-toastify";
 
 const Register = () => {
-  const { createUser, user, setUser, signInWithGoogle,update} = use(AuthContext);
-  const [error,setError]=useState("");
-  const location=useLocation();
-  const navigate=useNavigate();
+  const { createUser, user, setUser, signInWithGoogle, update } =
+    useContext(AuthContext);
+  const [error, setError] = useState("");
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const handleRegister = (e) => {
-
     const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
     e.preventDefault();
     const form = e.target;
-    const name=form.name.value;
-    const photo=form.photo.value;
+    const name = form.name.value;
+    const photo = form.photo.value;
     const email = form.email.value;
     const password = form.password.value;
-    
-    if(!passwordPattern.test(password))
-    {
-        setError("Password must contain at least one Uppercase letter, at least one Lowercase letter and password length must be at least 6 character ");
-        return;
-    }
-    else
-    {
-        setError("");
+
+    if (!passwordPattern.test(password)) {
+      setError(
+        "Password must contain at least one Uppercase letter, at least one Lowercase letter and password length must be at least 6 character "
+      );
+      return;
+    } else {
+      setError("");
     }
 
     createUser(email, password)
       .then((res) => {
         const user = res.user;
         update({
-          displayName:name,profileURL:photo})
-        .then(()=>{
-          setUser({...user, displayName:name, photoURL:photo});
+          displayName: name,
+          photoURL: photo,
+        }).then(() => {
+          setUser({ ...user, displayName: name, photoURL: photo });
           navigate("/");
-        })
+        });
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -49,19 +49,19 @@ const Register = () => {
     e.target.reset();
   };
 
-    const handleGoogleLogin=()=>{
+  const handleGoogleLogin = () => {
     signInWithGoogle()
-      .then((res)=>{
-        const user=res.user;
-        navigate(`${location.state?location.state:"/"}`);
+      .then((res) => {
+        const user = res.user;
+        navigate(`${location.state ? location.state : "/"}`);
         toast.success("Logged in successfully!");
-    })
-    .catch((error)=>{
+      })
+      .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
         toast.error(errorMessage);
-    });
-  }
+      });
+  };
 
   return (
     <div>
@@ -104,20 +104,26 @@ const Register = () => {
               placeholder="Password"
               required
             />
-            
-            {
-                error && <p className='font-bold text-secondary'>{error}</p>
-            }
 
-            <button className="btn btn-neutral mt-4 w-2/3 mx-auto">Register</button>
+            {error && <p className="font-bold text-secondary">{error}</p>}
+
+            <button className="btn btn-neutral mt-4 w-2/3 mx-auto">
+              Register
+            </button>
           </form>
-           <button onClick={handleGoogleLogin} className="btn btn-neutral mt-4 w-2/3 mx-auto"><FcGoogle/>Login with Google</button>
-            <p className="font-semibold text-center">
-              Already have an account?{" "}
-              <Link to="/auth/login" className="text-secondary text-center">
-                Login
-              </Link>
-            </p>
+          <button
+            onClick={handleGoogleLogin}
+            className="btn btn-neutral mt-4 w-2/3 mx-auto"
+          >
+            <FcGoogle />
+            Login with Google
+          </button>
+          <p className="font-semibold text-center">
+            Already have an account?{" "}
+            <Link to="/auth/login" className="text-secondary text-center">
+              Login
+            </Link>
+          </p>
         </div>
       </div>
     </div>
