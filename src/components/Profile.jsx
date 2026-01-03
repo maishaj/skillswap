@@ -35,7 +35,8 @@ const Profile = () => {
   console.log(user);
 
   return (
-    <div className="m-30 w-6/12 mx-auto bg-[#f8f8f8] rounded-xl p-10 flex gap-4 justify-center shadow-2xl">
+    <div className="w-11/12 mx-auto">
+      <div className="m-30 w-full md:w-6/12 mx-auto bg-[#f8f8f8] rounded-xl p-10 flex gap-4 justify-center shadow-2xl">
       {user && <img className="rounded-full" src={user.photoURL} alt="" />}
       <div className="flex flex-col justify-center space-y-3">
         {!editing ? (
@@ -46,7 +47,7 @@ const Profile = () => {
             <h2 className="font-semibold text-[16px]">Email: {user?.email}</h2>
             <button
               onClick={startEdit}
-              className="btn bg-black text-white w-2/3 rounded-sm"
+              className="btn bg-black text-white w-2/3 rounded-sm p-5"
             >
               Update Profile
             </button>
@@ -84,6 +85,7 @@ const Profile = () => {
           </form>
         )}
       </div>
+    </div>
     </div>
   );
 };
