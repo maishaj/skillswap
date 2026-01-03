@@ -16,7 +16,7 @@ const ToyCard = () => {
     },[])
 
     return (
-        <div className='w-11/12 mx-auto mb-20'>
+        <div className='w-11/12 mx-auto mb-30 mt-30'>
            <h1 className='font-bold text-2xl text-center mt-5 mb-5'>Popular Skills</h1>
            <div className='grid grid-cols-2 md:grid-cols-6 gap-8'>
                {

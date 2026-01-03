@@ -35,7 +35,7 @@ const Profile = () => {
   console.log(user);
 
   return (
-    <div className="m-30 w-6/12 mx-auto bg-[#f8f8f8] rounded-xl p-4 flex gap-4 justify-center shadow-2xl">
+    <div className="m-30 w-6/12 mx-auto bg-[#f8f8f8] rounded-xl p-10 flex gap-4 justify-center shadow-2xl">
       {user && <img className="rounded-full" src={user.photoURL} alt="" />}
       <div className="flex flex-col justify-center space-y-3">
         {!editing ? (
