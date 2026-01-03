@@ -3,11 +3,14 @@ import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../provider/AuthProvider";
 import { FcGoogle } from "react-icons/fc";
 import { toast } from "react-toastify";
+import { IoMdEyeOff } from "react-icons/io";
+import { FaEye } from "react-icons/fa";
 
 const Register = () => {
   const { createUser, user, setUser, signInWithGoogle, update } =
     useContext(AuthContext);
   const [error, setError] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -73,7 +76,7 @@ const Register = () => {
             <input
               type="text"
               name="name"
-              className="input"
+              className="input w-5/6"
               placeholder="Your name"
               required
             />
@@ -82,7 +85,7 @@ const Register = () => {
             <input
               type="email"
               name="email"
-              className="input"
+              className="input w-5/6"
               placeholder="Email"
               required
             />
@@ -91,19 +94,28 @@ const Register = () => {
             <input
               type="text"
               name="photo"
-              className="input"
+              className="input w-5/6"
               placeholder="Photo URL"
               required
             />
 
             <label className="label">Password</label>
-            <input
-              type="password"
-              name="password"
-              className="input"
-              placeholder="Password"
-              required
-            />
+            <div className="flex items-center gap-2">
+              <input
+                name="password"
+                type={showPassword ? "text" : "password"}
+                className="input flex-1"
+                placeholder="Password"
+                required
+              />
+              <button
+                type="button"
+                onClick={() => setShowPassword((s) => !s)}
+                className="btn bg-white border-0 text-xl"
+              >
+                {showPassword ? <FaEye /> : <IoMdEyeOff />}
+              </button>
+            </div>
 
             {error && <p className="font-bold text-secondary">{error}</p>}
 
