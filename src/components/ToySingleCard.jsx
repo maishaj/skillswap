@@ -6,10 +6,10 @@ const ToySingleCard = ({toy}) => {
 
 
     return (
-        <div className='p-4 bg-[#f8f8f8] rounded-xl shadow-lg'>
+        <div className='p-4 bg-[#f8f8f8] rounded-xl shadow-lg]'>
            <img className='w-full h-[150px] object-cover rounded-lg' src={toy.image} alt="" />
            <div className='h-[100px] space-y-1'>
-                <p className='text-[16px] font-bold h-[50px]'>{toy.skillName}</p>
+                <p className='font-bold h-[50px] mb-6'>{toy.skillName}</p>
                 <div className='flex justify-between'>
                     <p className='flex gap-1 font-medium'>
                         {toy.rating}
@@ -22,7 +22,7 @@ const ToySingleCard = ({toy}) => {
                 <p className='font-medium'>Tk {toy.price}</p>
            </div>
            <div className='flex justify-center'>
-           <Link to={`/skill-details/${toy.skillId}`} className='btn btn-secondary text-white mt-3'>View More</Link>
+           <Link to={`/skill-details/${toy.skillId}`} className='btn btn-secondary text-white mt-10'>View More</Link>
            </div>
         </div>
     );

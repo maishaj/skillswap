@@ -36,15 +36,15 @@ const Profile = () => {
 
   return (
     <div className="w-11/12 mx-auto">
-      <div className="m-30 w-full md:w-6/12 mx-auto bg-[#f8f8f8] rounded-xl p-10 flex gap-4 justify-center shadow-2xl">
-      {user && <img className="rounded-full" src={user.photoURL} alt="" />}
+      <div className="m-30 w-full md:w-6/12 mx-auto bg-[#f8f8f8] rounded-xl p-15 flex gap-4 justify-center shadow-2xl">
+      {user && <img className="rounded-full w-1/3" src={user.photoURL} alt="" />}
       <div className="flex flex-col justify-center space-y-3">
         {!editing ? (
           <>
             <h1 className="font-semibold text-[16px]">
               Name: {user?.displayName}
             </h1>
-            <h2 className="font-semibold text-[16px]">Email: {user?.email}</h2>
+            <h2 className="font-semibold text-[14px]">Email: {user?.email}</h2>
             <button
               onClick={startEdit}
               className="btn bg-black text-white w-2/3 rounded-sm p-5"
